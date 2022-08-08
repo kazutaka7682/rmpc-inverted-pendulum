@@ -51,9 +51,6 @@ public:
     }
     
     // fast compute state updation
-    // 三角関数はinline指定で事前呼び出ししたものを用いた.
-    // 各種物理定数は積を予めまとめて計算しておく.
-    // まとめられる部分はカッコで括る. 
     void UpdateStateFast(double f) {
         double dd_x = 0.0;
         double dd_angle = 0.0;
