@@ -8,13 +8,9 @@
 #include <cmath>
 #include <random>
 
-// RMPCでFを計算 課題２－F) (ヒント)
 double randomizedMPC(const InvertedPendulum &pendu_t);
 double get_urand();
 
-// 期限は8月3日となっていましたがreplit上では4日のam8:55が提出期限になっていたので,
-// 4日のam8:55以前に再度修正版を提出しました.(3日の23:53時点では提出完了していましたが)
-// これにより遅延扱いとなる場合は,3日23:55時点で提出していた事実を加味していただけると幸いです.
 
 int main() {
     const double dT = 0.0001;
@@ -33,8 +29,6 @@ int main() {
     InvertedPendulum orgPend(initPendu);
     tic(); // 計測開始
 
-    // ここにシミュレーションコードを書く
-    // 計算式をそのまま表現した分かりやすいコード UpdateStateを使う
     double inputF1 = -3.0;
     int timeLimit = 1 / dT;
     for (int i = 0; i < simN; i++)  {
@@ -55,8 +49,7 @@ int main() {
     InvertedPendulum impPend(initPendu);
     tic(); // 計測開始
 
-    // ここにシミュレーションコードを書く
-    // 計算時間に留意したコード UpdateStateFastを使う
+
     double inputF2 = -3.0;
     timeLimit = 1 / dT;
     for (int i = 0; i < simN; i++)  {
@@ -77,7 +70,6 @@ int main() {
     InvertedPendulum rmpcPend(0.01, L, g, m, M, initialPos, initialAngle, 0, 0);
     tic(); // 計測開始
 
-    // ここにシミュレーションとRMPCのコードを書く
     double inputF3 = 0.0;
     int counter = 0;
     for (int i = 0; i < simN; i++) {
@@ -114,7 +106,7 @@ double get_urand() {
     return (2* (( rand() / (double)RAND_MAX )) -1);
 }
 
-// これはヒントです．これを使う必要はありません．
+
 double randomizedMPC(const InvertedPendulum &pendu_t) {
     int Ns = 100; // Ns of input series
     std::vector<double> Js;  // storage for J
