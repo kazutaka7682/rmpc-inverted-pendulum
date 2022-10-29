@@ -6,13 +6,13 @@
 
 class InvertedPendulum {
 private:
-  // Parameters
+    // Parameters
     const double dT; // control interval
     const double L;  // length of pendulum
     const double g;  // gravity
     const double m;  // pendulum mass
     const double M;  // car mass
-
+    
     // States
     double angle;   // rad, pengulum angle
     double d_angle; // rad/s, pendulum speed
@@ -23,10 +23,10 @@ public:
     // constructor
     InvertedPendulum(double _dT, double _L, double _g, double _m, double _M, double _pos, double _angle, double _d_pos, double _d_angle)
       : dT(_dT), L(_L), g(_g), m(_m), M(_M) {
-        x = _pos;           // m;
-        d_x = _d_pos;       // m/s2
-        angle = _angle;     // rad
-        d_angle = _d_angle; // rad /s
+        x = _pos;           // [m]
+        d_x = _d_pos;       // [m/s2]
+        angle = _angle;     // [rad]
+        d_angle = _d_angle; // [rad/s]
     }
     
     //compute state updation
@@ -45,6 +45,7 @@ public:
     double inline sinFast(double x) {
         return sin(x);
     }
+    
     // faster cos method
     double inline cosFast(double x) {
         return cos(x);
@@ -74,8 +75,6 @@ public:
         std::cout << std::setprecision(6) << t << ":" << std::endl;
         std::cout << std::setprecision(3) << "a=" << angle << ", d_a=" << d_angle << ", x=" << x << ", d_x=" << d_x << std::endl;
     }
-
-    // you can add any method here
     
     // get angle
     double getAngle() {

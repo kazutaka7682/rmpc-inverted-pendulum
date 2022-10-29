@@ -1,12 +1,10 @@
-// Inverted pendulum test
-
 #include "InvPend.h"
 #include "Timer.h"
 #include <algorithm>
 #include <array>
-#include <vector>
 #include <cmath>
 #include <random>
+#include <vector>
 
 double randomizedMPC(const InvertedPendulum &pendu_t);
 double get_urand();
@@ -28,7 +26,6 @@ int main() {
     std::cout << "Original speed..." << std::endl;
     InvertedPendulum orgPend(initPendu);
     tic(); // 計測開始
-
     double inputF1 = -3.0;
     int timeLimit = 1 / dT;
     for (int i = 0; i < simN; i++)  {
@@ -39,17 +36,14 @@ int main() {
         //orgPend.ShowState(dT*i); // ここのコメントアウトを消して状態出力
     }
     //orgPend.ShowState(dT*simN); // ここのコメントアウトを消して状態出力
-
     // 計測終了
-    std::cout << "comp time : " << toc_us() << "us" << std::endl;
+    std::cout << "Computation time : " << toc_us() << " [us]" << std::endl;
     std::cout << std::endl;
 
     // ******* improved speed *********
     std::cout << "Improved speed..." << std::endl;
     InvertedPendulum impPend(initPendu);
     tic(); // 計測開始
-
-
     double inputF2 = -3.0;
     timeLimit = 1 / dT;
     for (int i = 0; i < simN; i++)  {
@@ -60,16 +54,14 @@ int main() {
         //impPend.ShowState(dT*i); // ここのコメントアウトを消して状態出力
     }
     //impPend.ShowState(dT*simN); // ここのコメントアウトを消して状態出力
-
     // 計測終了
-    std::cout << "comp time : " << toc_us() << "us" << std::endl;
+    std::cout << "Computation time : " << toc_us() << " [us]" << std::endl;
     std::cout << std::endl;
 
-    // ******* rmpc *********
-    std::cout << "Rmpc..." << std::endl;
+    // ******* RMPC *********
+    std::cout << "RMPC..." << std::endl;
     InvertedPendulum rmpcPend(0.01, L, g, m, M, initialPos, initialAngle, 0, 0);
     tic(); // 計測開始
-
     double inputF3 = 0.0;
     int counter = 0;
     for (int i = 0; i < simN; i++) {
@@ -85,27 +77,19 @@ int main() {
             std::cout << "succcess" << std::endl;
             counter = 0;
         }
-//        if (counter == 0) {
-//            std::cout << "failed" << std::endl;
-//        } else {
-//            std::cout << "success" << std::endl;
-//            c++;
-//        }
     }
-    //rmpcPend.ShowState(rmpcPend.getdT()*simN); // ここのコメントアウトを消して状態出力
+//    rmpcPend.ShowState(rmpcPend.getdT()*simN); // ここのコメントアウトを消して状態出力
 //    std::cout << "success : " << c << std::endl;
 //    std::cout << "failed : " << abs(simN - c) << std::endl;
     // 計測終了
-    std::cout << "comp time:" << toc_us() << "us" << std::endl;
+    std::cout << "Computation time : " << toc_us() << " [us]" << std::endl;
     std::cout << std::endl;
-
 }
 
 // Random from -1 to 1
 double get_urand() {
     return (2* (( rand() / (double)RAND_MAX )) -1);
 }
-
 
 double randomizedMPC(const InvertedPendulum &pendu_t) {
     int Ns = 100; // Ns of input series

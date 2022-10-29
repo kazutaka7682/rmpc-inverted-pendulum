@@ -9,6 +9,7 @@ std::time_t time_stamp;
 void tic() {
     start = std::chrono::system_clock::now(); // 計測開始時間
 }
+
 double toc_us() {
     end = std::chrono::system_clock::now(); // 計測終了時間
     auto time = end - start;
