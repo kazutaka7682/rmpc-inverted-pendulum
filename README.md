@@ -6,5 +6,3 @@ In addition, we are investigating the use of inline specifications to speed up t
 The standard inverted pendulum was modeled using the Lagrangian method.
 
 The gains for the RMPC are fixed, rather than scheduled each time when determining the control input.
-
-Translated with www.DeepL.com/Translator (free version)
