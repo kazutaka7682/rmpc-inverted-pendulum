@@ -1,2 +1,92 @@
+# Xcode
+#
+build/
+DerivedData/
+.idea/
+*.hmap
+*.ipa
+*.xcuserdatad
+*.xcscmblueprint
+*.xccheckout
+*.xcodeproj/project.xcworkspace/xcuserdata
+*.xcodeproj/xcuserdata/
+*.xcodeproj/project.xcworkspace/xcshareddata
+*.xcassets/
+*.swiftpm/
+*.swiftpm/xcode/
+*.swiftpm/xcode/xcodeproj.xcworkspace/
+*.xcodeproj/project.xcworkspace/xcshareddata/swiftpm/
+*.xcodeproj/xcshareddata/xcschemes/xcodeproj.xcscheme
+*.swiftpm/repositories/
+*.xcodeproj/xcshareddata/swiftpm/
+*.swiftpm/xcode/xcodeproj.xcworkspace/
+*.xcworkspace/xcuserdata/
+*.swiftpm/xcode/xcodeproj.xcworkspace/xcuserdata/
+
+# iOS
+#
+*.mode1v3
+*.mode2v3
+*.perspectivev3
+xcuserdata
+
+# Swift Package Manager
+#
+Packages/
+.build/
+
+# CocoaPods
+#
+Pods/
+*.lock
+*.xcworkspace
+
+# Carthage
+#
+Carthage/Build/
+
+# Fastlane
+#
+fastlane/report.xml
+fastlane/Preview.html
+fastlane/screenshots
+fastlane/test_output
+
+# Provisioning profiles
+#
+*.mobileprovision
+
+# AppCode
+#
+.idea/
+
+# JetBrains
+#
+.idea/
+
+# Documentation
+#
+*.docc/
+
+# Archives
+#
+*.xcarchive
+
+# Other
+#
 .DS_Store
-InvertedPendulum.xcodeproj/*
+*.moved-aside
+*.swp
+*~.nib
+*.swift-version
+*.nib
+*.plist
+*.json
+*.txt
+*.lproj
+*.storyboard
+*.strings
+*.xcassets
+*.lproj/
+*.swp
+*~
